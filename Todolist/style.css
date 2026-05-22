@@ -1,0 +1,284 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --bg: #0f0e11;
+  --surface: #1a1820;
+  --surface2: #221f2e;
+  --accent: #c9a96e;
+  --accent2: #e8c99a;
+  --text: #f0ece4;
+  --text-muted: #7a7585;
+  --radius: 16px;
+  --glow: 0 0 40px rgba(201, 169, 110, 0.08);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--bg);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 20px;
+  background-image:
+    radial-gradient(ellipse at 20% 20%, rgba(201,169,110,0.04) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 80%, rgba(138,110,201,0.04) 0%, transparent 60%);
+}
+
+.container {
+  width: 100%;
+  max-width: 460px;
+  animation: fadeUp 0.6s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* LOGIN */
+#login-screen {
+  background: var(--surface);
+  border: 1px solid rgba(201,169,110,0.15);
+  border-radius: 24px;
+  padding: 52px 40px;
+  text-align: center;
+  box-shadow: var(--glow);
+}
+
+#login-screen h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 300;
+  color: var(--text);
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+
+#login-screen p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 40px;
+}
+
+#google-login-btn {
+  width: 100%;
+  padding: 14px 24px;
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+#google-login-btn::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+#google-login-btn:hover { color: var(--bg); box-shadow: 0 0 24px rgba(201,169,110,0.3); }
+#google-login-btn:hover::before { opacity: 1; }
+#google-login-btn span { position: relative; z-index: 1; }
+
+/* APP */
+#app-screen {
+  background: var(--surface);
+  border: 1px solid rgba(201,169,110,0.12);
+  border-radius: 24px;
+  padding: 36px 36px 40px;
+  box-shadow: var(--glow);
+}
+
+.hidden { display: none !important; }
+
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 32px;
+}
+
+.top-bar h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  font-style: italic;
+  color: var(--text);
+  letter-spacing: 0.02em;
+  line-height: 1;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#user-photo {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid rgba(201,169,110,0.3);
+}
+
+#user-name {
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  max-width: 90px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#logout-btn {
+  padding: 4px 12px;
+  background: transparent;
+  border: 1px solid rgba(201,169,110,0.2);
+  color: var(--text-muted);
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.75rem;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: all 0.2s;
+}
+
+#logout-btn:hover { border-color: var(--accent); color: var(--accent); }
+
+.input-row { display: flex; gap: 10px; margin-bottom: 28px; }
+
+input[type="text"] {
+  flex: 1;
+  padding: 12px 16px;
+  background: var(--surface2);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  color: var(--text);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]::placeholder { color: var(--text-muted); }
+input[type="text"]:focus { border-color: rgba(201,169,110,0.4); }
+
+#addtask {
+  padding: 12px 20px;
+  background: var(--accent);
+  color: var(--bg);
+  border: none;
+  border-radius: 12px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: all 0.2s;
+}
+
+#addtask:hover {
+  background: var(--accent2);
+  transform: translateY(-1px);
+  box-shadow: 0 6px 20px rgba(201,169,110,0.25);
+}
+
+.divider { height: 1px; background: rgba(255,255,255,0.05); margin-bottom: 20px; }
+
+ul { list-style: none; display: flex; flex-direction: column; gap: 8px; }
+
+li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 16px;
+  background: var(--surface2);
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.04);
+  transition: all 0.25s ease;
+  animation: slideIn 0.3s ease both;
+}
+
+@keyframes slideIn {
+  from { opacity: 0; transform: translateX(-10px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+li:hover { border-color: rgba(201,169,110,0.15); transform: translateX(2px); }
+
+.check-circle {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1.5px solid var(--text-muted);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+li.done .check-circle { background: var(--accent); border-color: var(--accent); }
+
+li.done .check-circle::after {
+  content: '✓';
+  font-size: 10px;
+  color: var(--bg);
+  font-weight: 700;
+}
+
+li span.task-text {
+  flex: 1;
+  font-size: 0.9rem;
+  color: var(--text);
+  cursor: pointer;
+  font-weight: 300;
+  letter-spacing: 0.02em;
+  transition: color 0.2s;
+}
+
+li.done span.task-text { text-decoration: line-through; color: var(--text-muted); }
+
+.delete-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  cursor: pointer;
+  font-size: 18px;
+  padding: 2px 4px;
+  border-radius: 6px;
+  opacity: 0;
+  transition: all 0.2s;
+  line-height: 1;
+}
+
+li:hover .delete-btn { opacity: 1; }
+.delete-btn:hover { color: #ff6b6b; }
+
+.empty-state {
+  text-align: center;
+  padding: 32px 0;
+  color: var(--text-muted);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 300;
+  font-style: italic;
+}
